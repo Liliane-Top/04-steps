@@ -36,21 +36,31 @@ export default function App() {
             Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+            <Button
+              textcolor={"#fff"}
+              bgcolor={"#7950f2"}
               onClick={handlePrevious}
             >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handleNext}
-            >
-              Next
-            </button>
+              <span>👈</span> Previous
+            </Button>
+            <Button textcolor={"#fff"} bgcolor={"#7950f2"} onClick={handleNext}>
+              Next <span>👉</span>
+            </Button>
           </div>
         </div>
       )}
     </>
+  );
+}
+
+// children are a predefine keyword in React which passes all data which is between the opening and closing tag
+function Button({ textcolor, bgcolor, onClick, children }) {
+  return (
+    <button
+      style={{ backgroundColor: bgcolor, color: textcolor }}
+      onClick={onClick}
+    >
+      <span>{children}</span>
+    </button>
   );
 }
